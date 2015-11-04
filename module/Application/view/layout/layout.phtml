@@ -1,3 +1,27 @@
+<?php
+    $di = new Zend\Di\Di;
+class MyFirst{
+    public $second;
+    public function __construct(MySecond $s){
+    $this->second = $s;
+    }
+}
+    class MySecond{
+public function get(){
+    echo "Hello";
+}
+        public function __construct(){
+
+        }
+}
+//$d = new MyFirst(new MySecond());
+//echo $d->second->get();
+$d = $di->get("MyFirst");
+$d->second->get();
+?>
+
+
+
 <?php echo $this->doctype(); ?>
 
 <html lang="en">
