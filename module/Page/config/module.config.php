@@ -1,6 +1,6 @@
 <?php
 
-namespace Application;
+namespace Page;
 
 return array(
     'router' => array(
@@ -10,7 +10,7 @@ return array(
                 'options' => array(
                     'route'    => '/page[/:action][/:id]',
                     'constraints'=>[
-                        'action'=>"[a-zA-Z0-9_-]*",
+                        'action'=>"[a-zA-Z][a-zA-Z0-9_-]*",
                         'id'=>"[0-9]+",
                     ],
                     'defaults' => array(
