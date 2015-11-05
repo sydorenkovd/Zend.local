@@ -9,11 +9,21 @@
 
 namespace Page;
 
+use Page\Model\PageTable;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
 class Module
 {
+    public function getServiceConfig(){
+    return [
+      'factories'=>['Page\Model\PageTable'=> function($serviceManager){
+    $dbAdapter = $serviceManager->get("Zend\Db\Adapter\Adapter");
+          $table = new PageTable($dbAdapter);
+          return $table;
+      }]
+    ];
+    }
 
     public function getConfig()
     {

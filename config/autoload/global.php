@@ -12,5 +12,15 @@
  */
 
 return array(
-    // ...
+    'db'=>[
+        'driver' => 'Mysqli',
+        'database' => 'dbpage',
+        'username' => 'root',
+        'password' => ''
+    ],
+    'service_manager'=>[
+        'factories'=>[
+            'Zend\Adapter\Adapter'=>'Zend\Adapter\AdapterServiceFactory',
+        ],
+    ],
 );
