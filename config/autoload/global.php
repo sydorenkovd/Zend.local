@@ -13,14 +13,18 @@
 
 return array(
     'db'=>[
-        'driver' => 'Mysqli',
-        'database' => 'dbpage',
-        'username' => 'root',
-        'password' => ''
+        'driver' => 'Pdo',
+        'dsn' => 'mysql:dbname=dbpage; host=localhost',
+        'driver_options'=>[
+          PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+        ],
+
+
+
     ],
     'service_manager'=>[
         'factories'=>[
-            'Zend\Adapter\Adapter'=>'Zend\Adapter\AdapterServiceFactory',
+            'Zend\Db\Adapter\Adapter'=>'Zend\Db\Adapter\AdapterServiceFactory',
         ],
     ],
 );

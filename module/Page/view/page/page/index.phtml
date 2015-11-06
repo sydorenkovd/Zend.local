@@ -1,0 +1,27 @@
+<?php
+//echo "<pre>";
+//print_r($pages);
+//echo "</pre>";
+$title = 'My pages';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title)?></h1>
+<table class="table">
+<tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>&nbsp</th>
+</tr>
+    <?php foreach($pages as $page){?>
+<tr>
+    <td><?php echo $this->escapeHtml($page->title)?></td>
+    <td><?php echo $this->escapeHtml($page->article)?></td>
+    <td>
+        <a href="<?php echo $this->url("page", ["action"=>"modify", "id"=>$page->idpage])?>">Edit</a>
+        <a href="<?php echo $this->url("page", ["action"=>"delete", "id"=>$page->idpage])?>">Delete</a>
+    </td>
+</tr>
+   <?php }?>
+
+
+</table>

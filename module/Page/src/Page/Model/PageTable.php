@@ -5,7 +5,7 @@ use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\AbstractTableGateway;
 
 class PageTable extends AbstractTableGateway{
-    private $table = "page";
+    protected $table = "page";
 
     /**
      * @param Adapter $adapter
@@ -57,7 +57,7 @@ class PageTable extends AbstractTableGateway{
      * @return
      */
     public function exchangeArray($data){
-        $this->idpage = (isset($data["idpages"]) ? $data["idpages"] : null);
+        $this->idpage = (isset($data["idpage"]) ? $data["idpage"] : null);
         $this->title = (isset($data["title"]) ? $data["title"] : null);
         $this->article = (isset($data["article"]) ? $data["article"] : null);
         $this->pub = (isset($data["pub"]) ? $data["pub"] : null);
